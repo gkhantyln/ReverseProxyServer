@@ -82,11 +82,12 @@ def main():
 
 
 def parse_args():
+    default_hostname=input("Add Your Default Host Name >>> ")
     parser = argparse.ArgumentParser(description='Proxy HTTP requests')
     parser.add_argument('--port', dest='port', type=int, default=9999,
-                        help='serve HTTP requests on specified port (default: random)')
-    parser.add_argument('--hostname', dest='hostname', type=str, default='en.wikipedia.org',
-                        help='hostname to be processed (default: en.wikipedia.org)')
+                        help=f'serve HTTP requests on specified port (default: random)')
+    parser.add_argument('--hostname', dest='hostname', type=str, default=default_hostname,
+                        help='hostname to be processed (default: {default_hostname})')
     args = parser.parse_args()
     return args
 
